@@ -1,24 +1,16 @@
-**1. Clone wallet sources**
+**1. Clonar con git**
 
 ```
 git clone https://github.com/escreativa/bytcoins-wallet.git
 ```
 
-**2. Modify `CryptoNoteWallet.cmake`**
- 
-```
-set(CN_PROJECT_NAME "furiouscoin")
-set(CN_CURRENCY_DISPLAY_NAME "FuriousCoin")
-set(CN_CURRENCY_TICKER "XFC")
-```
-
-**3. Set symbolic link to coin sources at the same level as `src`. For example:**
+**2. enlace simb{olico a `src`.:**
 
 ```
 ln -s ../buycoinsd bytcoins
 ```
 
-**4. Build**
+**3. Construir**
 
 ```
 mkdir build && cd build && cmake .. && make
