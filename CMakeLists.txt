@@ -12,9 +12,9 @@ set(CRYPTONOTE_LIB cryptonote)
 
 include_directories(${CMAKE_BINARY_DIR}
     src
-    cryptonote/external
-    cryptonote/include
-    cryptonote/src)
+    bytcoins/external
+    bytcoins/include
+    bytcoins/src)
 
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
@@ -71,7 +71,7 @@ set(CRYPTONOTE_SOURCES
   bytcoins/src/crypto/chacha8.c
   bytcoins/src/crypto/crypto-ops-data.c
   bytcoins/src/crypto/crypto-ops.c
-  bytcoins/rc/crypto/crypto.cpp
+  bytcoins/src/crypto/crypto.cpp
   bytcoins/src/crypto/groestl.c
   bytcoins/src/crypto/hash-extra-blake.c
   bytcoins/src/crypto/hash-extra-groestl.c
@@ -81,7 +81,7 @@ set(CRYPTONOTE_SOURCES
   bytcoins/src/crypto/jh.c
   bytcoins/src/crypto/keccak.c
   bytcoins/src/crypto/oaes_lib.c
-  bytcoins/rc/crypto/random.c
+  bytcoins/src/crypto/random.c
   bytcoins/src/crypto/skein.c
   bytcoins/src/crypto/slow-hash.c
   bytcoins/src/crypto/slow-hash.cpp
@@ -166,7 +166,7 @@ set(CRYPTONOTE_SOURCES
   bytcoins/src/Logging/LoggerRef.cpp
   bytcoins/src/BlockchainExplorer/BlockchainExplorer.cpp
   bytcoins/src/BlockchainExplorer/BlockchainExplorerDataBuilder.cpp
-  bytcoinssrc/BlockchainExplorer/BlockchainExplorerErrors.cpp
+  bytcoins/src/BlockchainExplorer/BlockchainExplorerErrors.cpp
 )
 
 file(GLOB_RECURSE SOURCES src/*.cpp)
@@ -184,7 +184,7 @@ if (WIN32)
 	message(FATAL_ERROR "Only MSVC is supported on this platform")
   endif ()
   add_definitions(/D_CRT_SECURE_NO_WARNINGS /D_WIN32_WINNT=0x0600 /DSTATICLIB)
-  include_directories(cryptonote/src/platform/msc)
+  include_directories(bytcoins/src/platform/msc)
 
   set(PLATFORM_DIR Windows)
   set(BUILD_PLATFORM WIN32)
@@ -192,15 +192,15 @@ if (WIN32)
   set(QTMAIN Qt5::WinMain)
 
 elseif (UNIX)
-  set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} cryptonote/external/miniupnpc/minissdpc.c)
+  set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} bytcoins/external/miniupnpc/minissdpc.c)
   if (APPLE)
     enable_language(ASM)
     file(GLOB_RECURSE OBJC_SOURCES src/*.mm)
     set(SOURCES ${SOURCES} ${OBJC_SOURCES})
     set(PLATFORM_DIR OSX)
-    set(MACOSX_BUNDLE_INFO_STRING "Cryptonote GUI wallet")
+    set(MACOSX_BUNDLE_INFO_STRING "Bytcoins GUI wallet")
     set(MACOSX_BUNDLE_LONG_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
-    set(MACOSX_BUNDLE_BUNDLE_NAME CryptonoteWallet)
+    set(MACOSX_BUNDLE_BUNDLE_NAME BytcoinsWallet)
     set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
     set(MACOSX_BUNDLE_BUNDLE_VERSION "$${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
 
@@ -228,8 +228,8 @@ elseif (UNIX)
   endif (APPLE)
 endif ()
 
-include_directories(cryptonote/src/Platform/${PLATFORM_DIR})
-file(GLOB PLATFORM_SOURCES cryptonote/src/Platform/${PLATFORM_DIR}/System/*)
+include_directories(bytcoins/src/Platform/${PLATFORM_DIR})
+file(GLOB PLATFORM_SOURCES bytcoins/src/Platform/${PLATFORM_DIR}/System/*)
 set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
 
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
