@@ -4,9 +4,11 @@
 git clone https://github.com/escreativa/bytcoins-wallet.git
 ```
 
-**2. enlace simb{olico a `src`.:**
+**2. enlace simbolico a `src`.:**
 
 ```
+cd bytcoins-wallet
+
 ln -s ../bytcoins bytcoins
 ```
 
