@@ -1,7 +1,7 @@
 **1. Clone wallet sources**
 
 ```
-git clone https://github.com/cryptonotefoundation/cryptonotewallet.git
+git clone https://github.com/escreativa/bytcoins-wallet.git
 ```
 
 **2. Modify `CryptoNoteWallet.cmake`**
@@ -15,16 +15,8 @@ set(CN_CURRENCY_TICKER "XFC")
 **3. Set symbolic link to coin sources at the same level as `src`. For example:**
 
 ```
-ln -s ../cryptonote cryptonote
+ln -s ../buycoinsd bytcoins
 ```
-
-Alternative way is to create git submodule:
-
-```
-git submodule add https://github.com/cryptonotefoundation/cryptonote.git cryptonote
-```
-
-Replace URL with git remote repository of your coin.
 
 **4. Build**
 
