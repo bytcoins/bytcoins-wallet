@@ -7,7 +7,7 @@ git clone https://github.com/escreativa/bytcoins-wallet.git
 **2. enlace simb{olico a `src`.:**
 
 ```
-ln -s ../buycoinsd bytcoins
+ln -s ../bytcoins bytcoins
 ```
 
 **3. Construir**
