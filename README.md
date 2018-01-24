@@ -5,7 +5,7 @@ Instalación:
 **1. Clonar con git**
 
 ```
-git clone https://github.com/escreativa/bytcoins-wallet.git
+git clone https://github.com/bytcoins/bytcoins-wallet.git
 ```
 
 **2. enlace simbolico a "src"**
