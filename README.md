@@ -1,4 +1,4 @@
-Monedero Bytcoins BYT para entorno gráfico (desktop) en linux
+Monedero Bytcoins BYT para entorno gráfico (desktop *sudo apt-get install qt5-default ) en linux
 
 Instalación:
 
