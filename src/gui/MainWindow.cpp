@@ -200,7 +200,7 @@ bool MainWindow::event(QEvent* _event) {
 }
 
 void MainWindow::createWallet() {
-  QString filePath = QFileDialog::getSaveFileName(this, tr("New wallet file"),
+  QString filePath = QFileDialog::getSaveFileName(this, tr("Nuevo archivo de monedero bytcoins"),
   #ifdef Q_OS_WIN
       QApplication::applicationDirPath(),
   #else
@@ -224,13 +224,13 @@ void MainWindow::createWallet() {
 }
 
 void MainWindow::openWallet() {
-  QString filePath = QFileDialog::getOpenFileName(this, tr("Open .wallet/.keys file"),
+  QString filePath = QFileDialog::getOpenFileName(this, tr("Abrir .wallet/.keys archivo"),
 #ifdef Q_OS_WIN
     QApplication::applicationDirPath(),
 #else
     QDir::homePath(),
 #endif
-    tr("Wallet (*.wallet *.keys)"));
+    tr("Monedero (*.wallet *.keys)"));
 
   if (!filePath.isEmpty()) {
     if (WalletAdapter::instance().isOpen()) {
@@ -243,13 +243,13 @@ void MainWindow::openWallet() {
 }
 
 void MainWindow::backupWallet() {
-  QString filePath = QFileDialog::getSaveFileName(this, tr("Backup wallet to..."),
+  QString filePath = QFileDialog::getSaveFileName(this, tr("Copia de seguridad ..."),
   #ifdef Q_OS_WIN
       QApplication::applicationDirPath(),
   #else
       QDir::homePath(),
   #endif
-      tr("Wallets (*.wallet)")
+      tr("Monedero (*.wallet)")
       );
     if (!filePath.isEmpty() && !filePath.endsWith(".wallet")) {
       filePath.append(".wallet");
@@ -319,10 +319,10 @@ void MainWindow::setStatusBarText(const QString& _text) {
 void MainWindow::showMessage(const QString& _text, QtMsgType _type) {
   switch (_type) {
   case QtCriticalMsg:
-    QMessageBox::critical(this, tr("Wallet error"), _text);
+    QMessageBox::critical(this, tr("Error de monedero"), _text);
     break;
   case QtDebugMsg:
-    QMessageBox::information(this, tr("Wallet"), _text);
+    QMessageBox::information(this, tr("Monedero"), _text);
     break;
   default:
     break;
@@ -343,7 +343,7 @@ void MainWindow::encryptedFlagChanged(bool _encrypted) {
   QString encryptionIconPath = _encrypted ? ":icons/encrypted" : ":icons/decrypted";
   QPixmap encryptionIcon = QPixmap(encryptionIconPath).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   m_encryptionStateIconLabel->setPixmap(encryptionIcon);
-  QString encryptionLabelTooltip = _encrypted ? tr("Encrypted") : tr("Not encrypted");
+  QString encryptionLabelTooltip = _encrypted ? tr("Encriptado") : tr("No encriptado");
   m_encryptionStateIconLabel->setToolTip(encryptionLabelTooltip);
 }
 
@@ -351,19 +351,19 @@ void MainWindow::peerCountUpdated(quint64 _peerCount) {
   QString connectionIconPath = _peerCount > 0 ? ":icons/connected" : ":icons/disconnected";
   QPixmap connectionIcon = QPixmap(connectionIconPath).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   m_connectionStateIconLabel->setPixmap(connectionIcon);
-  m_connectionStateIconLabel->setToolTip(QString(tr("%1 peers").arg(_peerCount)));
+  m_connectionStateIconLabel->setToolTip(QString(tr("%1 pares").arg(_peerCount)));
 }
 
 void MainWindow::walletSynchronizationInProgress() {
   qobject_cast<AnimatedLabel*>(m_synchronizationStateIconLabel)->startAnimation();
-  m_synchronizationStateIconLabel->setToolTip(tr("Synchronization in progress"));
+  m_synchronizationStateIconLabel->setToolTip(tr("Sincronización en progreso"));
 }
 
 void MainWindow::walletSynchronized(int _error, const QString& _error_text) {
   QPixmap syncIcon = QPixmap(":icons/synced").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   qobject_cast<AnimatedLabel*>(m_synchronizationStateIconLabel)->stopAnimation();
   m_synchronizationStateIconLabel->setPixmap(syncIcon);
-  QString syncLabelTooltip = _error > 0 ? tr("Not synchronized") : tr("Synchronized");
+  QString syncLabelTooltip = _error > 0 ? tr("NO sincronizado") : tr("Sincronizado");
   m_synchronizationStateIconLabel->setToolTip(syncLabelTooltip);
 }
 
