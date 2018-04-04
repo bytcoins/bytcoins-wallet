@@ -80,7 +80,7 @@ quint64 WalletAdapter::getPendingBalance() const {
 void WalletAdapter::open(const QString& _password) {
   Q_ASSERT(m_wallet == nullptr);
   Settings::instance().setEncrypted(!_password.isEmpty());
-  Q_EMIT walletStateChangedSignal(tr("Opening wallet"));
+  Q_EMIT walletStateChangedSignal(tr("Abriendo monedero"));
 
   m_wallet = NodeAdapter::instance().createWallet();
   m_wallet->addObserver(this);
@@ -174,7 +174,7 @@ bool WalletAdapter::save(const QString& _file, bool _details, bool _cache) {
       closeFile();
       return false;
     }
-    Q_EMIT walletStateChangedSignal(tr("Saving data"));
+    Q_EMIT walletStateChangedSignal(tr("Guardando datos"));
   } else {
     return false;
   }
@@ -299,7 +299,7 @@ void WalletAdapter::saveCompleted(std::error_code _error) {
   if (!_error && !m_isBackupInProgress) {
     closeFile();
     renameFile(Settings::instance().getWalletFile() + ".temp", Settings::instance().getWalletFile());
-    Q_EMIT walletStateChangedSignal(tr("Ready"));
+    Q_EMIT walletStateChangedSignal(tr("Listo"));
     Q_EMIT updateBlockStatusTextWithDelaySignal();
   } else if (m_isBackupInProgress) {
     m_isBackupInProgress = false;
@@ -313,7 +313,7 @@ void WalletAdapter::saveCompleted(std::error_code _error) {
 
 void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _total) {
   m_isSynchronized = false;
-  Q_EMIT walletStateChangedSignal(QString("%1 %2/%3").arg(tr("Synchronizing")).arg(_current).arg(_total));
+  Q_EMIT walletStateChangedSignal(QString("%1 %2/%3").arg(tr("Sincronizando")).arg(_current).arg(_total));
   Q_EMIT walletSynchronizationProgressUpdatedSignal(_current, _total);
 }
 
@@ -415,8 +415,8 @@ void WalletAdapter::updateBlockStatusText() {
   const QDateTime blockTime = NodeAdapter::instance().getLastLocalBlockTimestamp();
   quint64 blockAge = blockTime.msecsTo(currentTime);
   const QString warningString = blockTime.msecsTo(currentTime) < LAST_BLOCK_INFO_WARNING_INTERVAL ? "" :
-    QString("  Warning: last block was received %1 hours %2 minutes ago").arg(blockAge / MSECS_IN_HOUR).arg(blockAge % MSECS_IN_HOUR / MSECS_IN_MINUTE);
-  Q_EMIT walletStateChangedSignal(QString(tr("Wallet synchronized. Height: %1  |  Time (UTC): %2%3")).
+    QString("  Peligro: último bloque recibido hace %1 hora %2 minutos").arg(blockAge / MSECS_IN_HOUR).arg(blockAge % MSECS_IN_HOUR / MSECS_IN_MINUTE);
+  Q_EMIT walletStateChangedSignal(QString(tr("Monedero bytcoins sincronizado. Altura de bloque: %1  |  Hora (UTC): %2%3")).
     arg(NodeAdapter::instance().getLastLocalBlockHeight()).
     arg(QLocale(QLocale::English).toString(blockTime, "dd MMM yyyy, HH:mm:ss")).
     arg(warningString));
