@@ -233,7 +233,7 @@ void WalletAdapter::sendTransaction(const QVector<CryptoNote::WalletLegacyTransf
   try {
     lock();
     m_wallet->sendTransaction(_transfers.toStdVector(), _fee, NodeAdapter::instance().convertPaymentId(_paymentId), _mixin, 0);
-    Q_EMIT walletStateChangedSignal(tr("Sending transaction"));
+    Q_EMIT walletStateChangedSignal(tr("Enviando transacci´´on"));
   } catch (std::system_error&) {
     unlock();
   }
@@ -273,7 +273,7 @@ void WalletAdapter::onWalletInitCompleted(int _error, const QString& _errorText)
     Q_EMIT walletPendingBalanceUpdatedSignal(m_wallet->pendingBalance());
     Q_EMIT updateWalletAddressSignal(QString::fromStdString(m_wallet->getAddress()));
     Q_EMIT reloadWalletTransactionsSignal();
-    Q_EMIT walletStateChangedSignal(tr("Ready"));
+    Q_EMIT walletStateChangedSignal(tr("Listo"));
     QTimer::singleShot(5000, this, SLOT(updateBlockStatusText()));
     if (!QFile::exists(Settings::instance().getWalletFile())) {
       save(true, true);
