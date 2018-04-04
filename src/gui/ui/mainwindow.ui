@@ -274,7 +274,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Encrptar monedero</string>
+    <string>Encriptar monedero</string>
    </property>
   </action>
   <action name="m_changePasswordAction">
