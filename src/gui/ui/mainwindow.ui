@@ -115,7 +115,7 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Archivo</string>
     </property>
     <addaction name="m_createWalletAction"/>
     <addaction name="m_openWalletAction"/>
@@ -124,7 +124,7 @@
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
-     <string>Settings</string>
+     <string>Configuracion</string>
     </property>
     <addaction name="m_encryptWalletAction"/>
     <addaction name="m_changePasswordAction"/>
@@ -135,7 +135,7 @@
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
-     <string>Help</string>
+     <string>Ayuda</string>
     </property>
     <addaction name="m_aboutCryptonoteAction"/>
     <addaction name="m_aboutQtAction"/>
@@ -194,7 +194,7 @@
      <normaloff>:/icons/send</normaloff>:/icons/send</iconset>
    </property>
    <property name="text">
-    <string>Send</string>
+    <string>Enviar</string>
    </property>
   </action>
   <action name="m_receiveAction">
@@ -209,7 +209,7 @@
      <normaloff>:/icons/receive</normaloff>:/icons/receive</iconset>
    </property>
    <property name="text">
-    <string>Receive</string>
+    <string>Recibir</string>
    </property>
   </action>
   <action name="m_transactionsAction">
@@ -224,7 +224,7 @@
      <normaloff>:/icons/transactions</normaloff>:/icons/transactions</iconset>
    </property>
    <property name="text">
-    <string>Transactions</string>
+    <string>Transacciones</string>
    </property>
   </action>
   <action name="m_exitAction">
@@ -232,7 +232,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Exit</string>
+    <string>Salir</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
@@ -250,7 +250,7 @@
      <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
    </property>
    <property name="text">
-    <string>Address Book</string>
+    <string>Agenda de direcciones</string>
    </property>
   </action>
   <action name="m_createWalletAction">
@@ -258,7 +258,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Create wallet</string>
+    <string>Crear monedero</string>
    </property>
   </action>
   <action name="m_openWalletAction">
@@ -266,7 +266,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Open wallet</string>
+    <string>Abrir monedero</string>
    </property>
   </action>
   <action name="m_encryptWalletAction">
@@ -274,7 +274,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Encrypt wallet</string>
+    <string>Encrptar monedero</string>
    </property>
   </action>
   <action name="m_changePasswordAction">
@@ -282,10 +282,10 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Change password</string>
+    <string>Modificar contraseña</string>
    </property>
    <property name="toolTip">
-    <string>Change password</string>
+    <string>Modificar contraseña</string>
    </property>
   </action>
   <action name="m_aboutCryptonoteAction">
@@ -293,7 +293,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>About</string>
+    <string>Bytcoins</string>
    </property>
   </action>
   <action name="m_aboutQtAction">
@@ -301,7 +301,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>About Qt</string>
+    <string>¿Que es Qt?</string>
    </property>
   </action>
   <action name="m_backupWalletAction">
@@ -309,7 +309,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Backup wallet</string>
+    <string>Copia de seguridad monedero</string>
    </property>
   </action>
   <action name="m_startOnLoginAction">
@@ -317,7 +317,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Start on system login</string>
+    <string>Comenzar con usuario</string>
    </property>
   </action>
   <action name="m_minimizeToTrayAction">
@@ -325,7 +325,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Minimize to tray</string>
+    <string>Minimizar</string>
    </property>
   </action>
   <action name="m_closeToTrayAction">
@@ -333,7 +333,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Close to tray</string>
+    <string>Cerrar</string>
    </property>
   </action>
  </widget>
