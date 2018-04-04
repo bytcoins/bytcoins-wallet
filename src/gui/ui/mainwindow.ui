@@ -146,7 +146,7 @@
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>Herramientas</string>
    </property>
    <property name="movable">
     <bool>false</bool>
@@ -179,7 +179,7 @@
      <normaloff>:/icons/overview</normaloff>:/icons/overview</iconset>
    </property>
    <property name="text">
-    <string>Overview</string>
+    <string>Inicio</string>
    </property>
   </action>
   <action name="m_sendAction">
@@ -317,7 +317,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Comenzar con usuario</string>
+    <string>Arrancar al iniciar sistema</string>
    </property>
   </action>
   <action name="m_minimizeToTrayAction">
