@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Select address</string>
+   <string>Seleccionar dirección</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -35,7 +35,7 @@
      <item>
       <widget class="QPushButton" name="m_okButton">
        <property name="text">
-        <string>Choose</string>
+        <string>Seleccionar</string>
        </property>
       </widget>
      </item>
