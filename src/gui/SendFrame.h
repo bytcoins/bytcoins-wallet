@@ -6,6 +6,8 @@
 
 #include <QFrame>
 
+#include <IWalletLegacy.h>
+
 #include <IWallet.h>
 
 namespace Ui {
