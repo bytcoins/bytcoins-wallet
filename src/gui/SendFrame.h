@@ -8,7 +8,7 @@
 
 #include <IWallet.h>
 
-// incluir para compilar en windows gui con visual studio 2017
+// incluir para compilar en windows gui con visual studio 2013
 #include "IWalletLegacy.h"
 
 namespace Ui {
